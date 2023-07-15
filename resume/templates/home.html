@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- main -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col text-center">
+            <div class="py-4">
+                <img src="{% static 'person.png' %}" style="width: 200px;height: 200px;;" alt="profile">
+            </div>
+            <div class="py-4">
+                <h1>Hi I am Dylan Morán</h1>
+                <h3>a Back-end development Jr</h3>
+            </div>
+            <div class="py-4">
+                <a href="https://www.linkedin.com/in/dylan-mor%C3%A1n-979abb269/" target="_blank">
+                    <i class="bi bi-linkedin" style="font-size: 2rem;"></i>
+                </a>
+                <a href="https://github.com/DylanML" target="_blank">
+                    <i class="bi bi-github p-2" style="font-size: 2rem;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- content -->
+
+<div class="container p-4">
+    <h1 class="text-center">Projects</h1>
+    <div class="row g-4 py-4">
+        {% for project in projects %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <img src="{{project.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{project.title}}</h5>
+                    <p class="card-text">{{project.description}}</p>
+                    <div class="text-center">
+                        <a href="{{project.link}}" target="_blank" class="btn btn-primary">Go to
+                            project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
