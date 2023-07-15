@@ -25,6 +25,7 @@ environ.Env.read_env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-!7ch+f35-j@^6d)i2(po$!i5-csxsf)5iuwtmef9ld6ixluo=y'
+DATABASE_URL="postgresql://postgres:1DwuKOMtoimy19sS2nhd@containers-us-west-61.railway.app:6253/railway"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
+    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
 
